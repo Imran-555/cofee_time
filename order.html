@@ -27,34 +27,61 @@
 
 
    <br><br><br>
-   <form action="thank.html">
+   <form method="POST" name="google-sheet" >
    <div class="mb-3">
   <label for="formGroupExampleInput" class="form-label">NAME</label>
-  <input type="text" class="form-control" id="formGroupExampleInput" placeholder="IMRAN RAEENI">
+  <input  name="NAME" type="text" class="form-control" id="formGroupExampleInput" placeholder="IMRAN RAEENI">
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">ADDRESS</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="GORAKHPUR">  
+  <input name="ADDRESS" type="text" class="form-control" id="formGroupExampleInput2" placeholder="GORAKHPUR">  
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">MOBILE</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="8329666408">  
+  <input  name="MOBILE" type="text" class="form-control" id="formGroupExampleInput2" placeholder="8329666408">  
 </div>
 <div class="mb-3">
   <label for="formGroupExampleInput2" class="form-label">LANDMARK</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="GORAKHNATH MANDIR">  
+  <input  name="LANDMARK" type="text" class="form-control" id="formGroupExampleInput2" placeholder="GORAKHNATH MANDIR">  
 </div>
 <div class="mb-3">
-  <label for="formGroupExampleInput2" class="form-label">CUP OF COFFEE</label>
-  <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="10">
-   
+  <label   for="formGroupExampleInput2" class="form-label">CUP OF COFFEE</label>
+  <input  name="CUP" type="text" class="form-control" id="formGroupExampleInput2" placeholder="10">
+  
 </div>
   <div class="col-auto">
     
   </div>
-     <button type="submit" class="btn btn-primary">Submit</button>  
+
+  <button type="submit" class="btn btn-primary" onclick="thank.html">Submit</button>  
 </form>
     
+
+    <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbw-9SC-kVBpTwe6WvgyDdMjSVXJ9Xj3trZMksADt1eQRIMl-3VTfGpiWCMF35Nv4WPD/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for YOUR ORDER..! We Will DELIVER You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
