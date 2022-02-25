@@ -64,9 +64,13 @@
             form.addEventListener('submit', e => {
               e.preventDefault()
               fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("Thanks for YOUR ORDER..! We Will DELIVER You Soon..."))
+                
                 .catch(error => console.error('Error!', error.message))
             })
+      
+                 function myFunction() {
+  alert("Thanks for YOUR ORDER..! We Will DELIVER You Soon...\n PRESS  OK ");
+}
           </script>
 
 
